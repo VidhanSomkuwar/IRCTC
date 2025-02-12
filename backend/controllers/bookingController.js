@@ -9,7 +9,7 @@ export const bookSeat = async (req, res) => {
     const { trainId } = req.body;
     const userId = req.user.id;
 
-    // Lock the train record for update to prevent overselling
+    // Lock a record
     const train = await Train.findByPk(trainId, {
       lock: t.LOCK.UPDATE,
       transaction: t
@@ -72,7 +72,7 @@ export const getBookingDetails = async (req, res) => {
     const booking = await Booking.findOne({
       where: { 
         id: bookingId,
-        userId // Ensure user can only access their own bookings
+        userId
       },
       include: [
         {

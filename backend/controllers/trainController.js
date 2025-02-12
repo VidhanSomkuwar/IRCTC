@@ -13,7 +13,7 @@ export const addTrain = async (req, res) => {
       source,
       destination,
       totalSeats,
-      availableSeats: totalSeats, // Initially all seats are available
+      availableSeats: totalSeats, 
       departureTime
     });
 
@@ -30,11 +30,11 @@ export const getAvailableTrains = async (req, res) => {
     
     const whereClause = {
       availableSeats: {
-        [Op.gt]: 0  // Greater than 0
+        [Op.gt]: 0  
       }
     };
 
-    // Add source and destination to search if provided
+    
     if (source) whereClause.source = source;
     if (destination) whereClause.destination = destination;
     if (date) {

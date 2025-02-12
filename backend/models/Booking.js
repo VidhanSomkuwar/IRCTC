@@ -20,10 +20,10 @@ const Booking = (sequelize) => {
       defaultValue: DataTypes.NOW
     }
   }, {
-    // Add this to control which fields are returned
+    
     defaultScope: {
       attributes: {
-        exclude: ['UserId', 'TrainId'] // Exclude the capitalized versions
+        exclude: ['UserId', 'TrainId']
       }
     }
   });
